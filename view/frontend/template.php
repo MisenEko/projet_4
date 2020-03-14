@@ -1,10 +1,5 @@
 <?php 
-
 require("view/frontend/head.php");
-require("model/showPost.php");
-
-
-
 ?>
 
 
@@ -15,16 +10,8 @@ require("model/showPost.php");
     </head>
 
     <body>
-        <H3>TEST</H3>
-
-        </br>
-
-        <?php
-
-        $reponse = getPosts();
-        ?>
-
-        <h3>Test de titre : <?php echo $reponse['title']; ?></h3>
+       <p>test</p>
+       <?= $content ?>
     </body>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>

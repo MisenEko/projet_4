@@ -1,7 +1,8 @@
 <?php
+error_reporting(-1);
 
-require('view/frontend/template.php');
-
+require('controller/frontend.php');
+listPosts();
 
 /*try {
     if (isset($_GET['action'])) {
