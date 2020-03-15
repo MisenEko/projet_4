@@ -2,7 +2,33 @@
 error_reporting(-1);
 
 require('controller/frontend.php');
-listPosts();
+
+try{
+    if(isset($_GET['action'])){
+        if($_GET['action'] == 'post'){
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                post();
+            } else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        } elseif (isset($_GET['id']) && $_GET['id']>0) {
+            if(!empty($_POST['pseudo']) && !empty($_POST['content']) ){
+                throw new Exception('c\'est ok');
+            } else {
+                throw new Exception('c\'est non');
+            }
+        }
+    } else {
+        listPosts();
+    }
+} catch(Exception $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
+
+
+
+
+
 
 /*try {
     if (isset($_GET['action'])) {
