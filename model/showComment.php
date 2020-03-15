@@ -13,7 +13,7 @@ class ShowCommentManager extends Manager {
         return $req;
     }
 
-    public function addCommentDb($idPost){
+    public function addCommentDb($pseudo, $content, $idPost){
 
     }
 

@@ -6,6 +6,23 @@
     <h3> <?= htmlspecialchars($singlePost['title'])?></h3>
     <h2> <?= htmlspecialchars($singlePost['content']) ?></h2>
 
+    <?php 
+
+    $data = $comment -> fetch();
+    if($data['content'] == ''){
+        echo "Aucun commentaire";
+        } else { echo 'oui';}
+
+    while($data = $comment -> fetch()){
+        
+        
+    }
+
+
+    ?>
+
+
+
     <form action="index.php?action=addComment&amp;id=<?= $singlePost['id'];?>" method="post">
         <div>
             <label>Votre pseudo :</label>
