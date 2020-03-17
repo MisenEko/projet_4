@@ -37,3 +37,27 @@ function addComment($pseudo, $content, $idPost){
 
 
 }
+
+function getCommentByIds(){
+    $commentManager = new ShowCommentManager();
+
+    $contents = $commentManager ->getCommentById($_GET['comment_id']);
+    $comId = $_GET['comment_id'];
+    
+
+
+
+    require("view/frontend/EditComment.php");
+}
+
+function editComments($editContent, $id){
+    $commentManager = new ShowCommentManager();
+    $editComment = $commentManager -> editComment($editContent, $id);
+
+    if ($editComment === false) {
+        die("Le commentaire n'a pas été ajouté.");
+    }
+    else {
+        header('Location: index.php');
+    }
+}

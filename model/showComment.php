@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once('model/manager.php');
 
 class ShowCommentManager extends Manager {
@@ -21,5 +25,25 @@ class ShowCommentManager extends Manager {
 
         return $addLine;
     }
+
+    public function editComment($content, $id){
+        $db = $this -> dbConnect();
+        $editComs = $db -> prepare ('UPDATE comments SET content= ? WHERE id = ?');
+        $editCom = $editComs -> execute(array($content, $id));
+
+        return $editCom;
+
+    }
+
+    public function getCommentById($id)
+    {
+        $db = $this -> dbConnect();
+        $req = $db->prepare('SELECT content FROM comments WHERE id = ?'); 
+        $req -> execute(array($id));
+        $test = $req ->fetch();
+
+        return $test;
+    }
+
 
 }

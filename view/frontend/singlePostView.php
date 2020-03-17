@@ -1,4 +1,10 @@
-<?php ob_start(); ?>
+<?php 
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+ob_start(); ?>
 
 <h1>Affichage d'un article et des commentaires</h1>
 
@@ -8,11 +14,15 @@
 
   
     <?php
-    while($data = $comment -> fetch()){?>  
-            <div>          
-            <p>Auteur : <?= htmlspecialchars($data['author']) ?></p>
-            <p>Commentaire : <?= htmlspecialchars($data['content']) ?></p>
+    while($comments = $comment -> fetch()){?>  
+            </br>  
+            <div>                   
+            <p>Auteur : <?= htmlspecialchars($comments['author']) ?></p>
+            <p>Commentaire : <?= htmlspecialchars($comments['content']) ?></p>
+            <em><a href="index.php?action=editComment&amp;comment_id=<?= $comments['id']?>">edit</a></em>
+            
             </div>
+            </br>
     <?php 
     } 
     $comment->closeCursor();
