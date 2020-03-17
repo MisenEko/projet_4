@@ -6,19 +6,16 @@
     <h3> <?= htmlspecialchars($singlePost['title'])?></h3>
     <h2> <?= htmlspecialchars($singlePost['content']) ?></h2>
 
+  
+    <?php
+    while($data = $comment -> fetch()){?>  
+            <div>          
+            <p>Auteur : <?= htmlspecialchars($data['author']) ?></p>
+            <p>Commentaire : <?= htmlspecialchars($data['content']) ?></p>
+            </div>
     <?php 
-
-    $data = $comment -> fetch();
-    if($data['content'] == ''){
-        echo "Aucun commentaire";
-        } else { echo 'oui';}
-
-    while($data = $comment -> fetch()){
-        
-        
-    }
-
-
+    } 
+    $comment->closeCursor();
     ?>
 
 
@@ -27,7 +24,7 @@
         <div>
             <label>Votre pseudo :</label>
             </br>
-            <input type="text" id="pseudo" name="pseudo">
+            <input type="text" id="author" name="author">
         </div>
 
         <div>

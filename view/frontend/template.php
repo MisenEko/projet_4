@@ -10,7 +10,6 @@ require("view/frontend/head.php");
     </head>
 
     <body>
-       <p>test</p>
        <?= $content ?>
     </body>
 

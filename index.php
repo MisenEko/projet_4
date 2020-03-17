@@ -11,13 +11,20 @@ try{
             } else {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
-        } elseif (isset($_GET['id']) && $_GET['id']>0) {
-            if(!empty($_POST['pseudo']) && !empty($_POST['content']) ){
-                throw new Exception('c\'est ok');
-            } else {
-                throw new Exception('c\'est non');
+        } elseif (isset($_GET['action']) == 'addComment'){
+
+            if(isset($_GET['id']) && $_GET['id'] > 0){
+
+                if(!empty($_POST['author']) && !empty($_POST['content']) ){
+
+                    addComment($_POST['author'], $_POST['content'], $_GET['id']);
+
+                } else {
+                    throw new Exception('c\'est non');
+                }
             }
-        }
+
+        } 
     } else {
         listPosts();
     }

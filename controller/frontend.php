@@ -22,3 +22,18 @@ function post(){
     require("view/frontend/singlePostView.php");
 
 }
+
+function addComment($pseudo, $content, $idPost){
+
+    $commentManager = new ShowCommentManager();
+    $addLine = $commentManager -> addCommentDb($pseudo, $content, $idPost);
+
+    if ($addLine === false) {
+        die("Le commentaire n'a pas été ajouté.");
+    }
+    else {
+        header('Location: index.php?action=post&id=' . $idPost);
+    }
+
+
+}
