@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 require_once('model/manager.php');
 
-class ShowCommentManager extends Manager {
+class CommentManager extends Manager {
 
     public function getComments($idPost)
     {

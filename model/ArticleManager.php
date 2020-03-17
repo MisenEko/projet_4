@@ -4,7 +4,7 @@
 
 require_once("model/manager.php");
 
-class ShowPostManager extends Manager{
+class ArticleManager extends Manager{
 
     public function getPosts(){
         $db = $this -> dbConnect();

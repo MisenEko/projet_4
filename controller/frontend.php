@@ -1,11 +1,11 @@
 <?php
 error_reporting(-1);
-require_once('model/showPost.php');
-require_once('model/showComment.php');
+require_once('model/ArticleManager.php');
+require_once('model/CommentManager.php');
 
 function listPosts()
 {
-    $postManager = new ShowPostManager();
+    $postManager = new ArticleManager();
     $posts = $postManager->getPosts();
 
     require('view/frontend/showPostView.php');
@@ -13,8 +13,8 @@ function listPosts()
 
 function post(){
     
-    $commentManager = new ShowCommentManager();
-    $postManager = new ShowPostManager();
+    $commentManager = new CommentManager();
+    $postManager = new ArticleManager();
 
     $singlePost = $postManager->getPost($_GET['id']);
     $comment = $commentManager -> getComments($_GET['id']);
@@ -25,7 +25,7 @@ function post(){
 
 function addComment($pseudo, $content, $idPost){
 
-    $commentManager = new ShowCommentManager();
+    $commentManager = new CommentManager();
     $addLine = $commentManager -> addCommentDb($pseudo, $content, $idPost);
 
     if ($addLine === false) {
@@ -39,7 +39,7 @@ function addComment($pseudo, $content, $idPost){
 }
 
 function getCommentByIds(){
-    $commentManager = new ShowCommentManager();
+    $commentManager = new CommentManager();
 
     $contents = $commentManager ->getCommentById($_GET['comment_id']);
     $comId = $_GET['comment_id'];
@@ -51,7 +51,7 @@ function getCommentByIds(){
 }
 
 function editComments($editContent, $id){
-    $commentManager = new ShowCommentManager();
+    $commentManager = new CommentManager();
     $editComment = $commentManager -> editComment($editContent, $id);
 
     if ($editComment === false) {
