@@ -19,7 +19,7 @@ ob_start(); ?>
             <div>                   
             <p>Auteur : <?= htmlspecialchars($comments['author']) ?></p>
             <p>Commentaire : <?= htmlspecialchars($comments['content']) ?></p>
-            <em><a href="index.php?action=editComment&amp;comment_id=<?= $comments['id']?>">edit</a></em>
+            <em><a href="comments.php?action=editComment&amp;comment_id=<?= $comments['id']?>">edit</a></em>
             
             </div>
             </br>
@@ -30,7 +30,7 @@ ob_start(); ?>
 
 
 
-    <form action="index.php?action=addComment&amp;id=<?= $singlePost['id'];?>" method="post">
+    <form action="comments.php?action=addComment&amp;id=<?= $singlePost['id'];?>" method="post">
         <div>
             <label>Votre pseudo :</label>
             </br>

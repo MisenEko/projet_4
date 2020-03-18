@@ -12,7 +12,7 @@ ob_start(); ?>
     
     <h2> <?= htmlspecialchars($contents['content']) ?></h2>
 
-    <form action="index.php?action=editComment&amp;edit_id=<?= $comId?>" method="post">
+    <form action="comments.php?action=editComment&amp;edit_id=<?= $comId?>" method="post">
 
         <div>
             <label>Votre commentaire : </label>

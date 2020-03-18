@@ -32,7 +32,7 @@ function addComment($pseudo, $content, $idPost){
         die("Le commentaire n'a pas été ajouté.");
     }
     else {
-        header('Location: index.php?action=post&id=' . $idPost);
+        header('Location: posts.php?action=post&id=' . $idPost);
     }
 
 
