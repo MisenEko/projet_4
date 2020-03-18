@@ -61,3 +61,7 @@ function editComments($editContent, $id){
         header('Location: index.php');
     }
 }
+
+function logAdmin(){
+    
+}
