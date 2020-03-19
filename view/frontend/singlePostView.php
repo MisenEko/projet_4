@@ -1,16 +1,45 @@
 <?php 
+/** ob_start with the content of the title and subtitle of the post */
+ob_start();
+?>
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1><?= htmlspecialchars($singlePost['title'])?></h1>
+            <h2 class="subheading">-- no subtitle --</h2>
+            <span class="meta">Posted by <?= htmlspecialchars($singlePost['author'])?>
+              <a href="#">Start Bootstrap</a>
+              <?= htmlspecialchars($singlePost['creation_date_fr'])?></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <?php
+    $header = ob_get_clean()
+    ?>
+
+<?php  
+
+/**  ob_start with the content of the post and all the commentaries.*/
 
 ob_start(); ?>
-
-<h1>Affichage d'un article et des commentaires</h1>
-
 <div>
-    <h3> <?= htmlspecialchars($singlePost['title'])?></h3>
-    <h2> <?= htmlspecialchars($singlePost['content']) ?></h2>
+    <h3> </h3>
+    <article>
+                <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <?= nl2br(htmlspecialchars($singlePost['content'])) ?>
+                    </div>
+                </div>
+                </div>
+    </article>
 
   
     <?php
@@ -23,6 +52,8 @@ ob_start(); ?>
             
             </div>
             </br>
+
+
     <?php 
     } 
     $comment->closeCursor();
@@ -51,4 +82,4 @@ ob_start(); ?>
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
+<?php require('PostView.php'); ?>

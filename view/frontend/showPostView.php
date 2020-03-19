@@ -8,26 +8,34 @@ error_reporting(E_ALL);
 ob_start(); 
 
 ?>
-<h1>Mon super blog !</h1>
-<p>Derniers billets du blog :</p>
 
-
-<?php
+    <?php
 while ($data = $posts->fetch())
-{
-?>
-    <div class="news">
-        <h3>
-            <?= htmlspecialchars($data['title']) ?>
-            <em>le <?= $data['creation_date_fr'] ?></em>
-        </h3>
-        
-        <p>
-            <?= nl2br(htmlspecialchars($data['content'])) ?>
-            <br />
-            <em><a href="posts.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
-        </p>
+{ ?>
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <a href="posts.php?action=post&amp;id=<?= $data['id'] ?>">
+            <h2 class="post-title">
+                <?= htmlspecialchars($data['title']) ?>
+            </h2>
+            <h3 class="post-subtitle">
+                <?= nl2br(htmlspecialchars($data['post_sample'])) ?>
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Start Bootstrap</a>
+            <em>le <?= $data['creation_date_fr'] ?></em></p>
+        </div>
+        <hr>
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
     </div>
+  </div>
 
 
 <?php
@@ -37,4 +45,4 @@ $posts->closeCursor();
 <?php $content = ob_get_clean(); ?>
 
 
-<?php require('template.php'); ?>
+<?php require('main.php'); ?>
