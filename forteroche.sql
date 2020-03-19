@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 18, 2020 at 08:22 PM
+-- Generation Time: Mar 19, 2020 at 03:41 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `content` text COLLATE utf8_bin NOT NULL,
   `creation_date` datetime NOT NULL,
   `title` varchar(255) COLLATE utf8_bin NOT NULL,
+  `post_sample` text COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -69,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `author`, `content`, `creation_date`, `title`) VALUES
-(1, 'Forteroche', 'Dans une vidéo publiée vendredi sur Facebook par les autorités locales, Tyson Steele, 30 ans, fait de grands signes en direction de l’hélicoptère. Dans la neige est écrit un immense SOS.\r\n\r\n\"Sa cabane a brûlé à la mi-décembre tuant son chien et le laissant isolé dans des températures en dessous de zéro et avec aucun moyen de communication pendant 23 jours\", écrit la police de l’Alaska.\r\n\r\nLe jeune homme a été retrouvé sain et sauf jeudi dans cette zone où il vivait depuis septembre, loin de tout lieu d’habitation. Il a raconté son incroyable lutte pour survivre aux \"States Troopers\" de l’Alaska, qui l’ont publiée sur leur site internet.\r\n\r\n\"Il était une heure ou deux du matin et j’étais éveillé dans cette cabine froide\", dit-il.\r\n\r\nQuand il sort de sa chaumière, le toit est en feu, il dit avoir eu juste le temps de récupérer quelques affaires. Son chien, en revanche, ne le suit pas.\r\n\r\n\"Mon chien commence à hurler. À l’intérieur. Et je pensais qu’il n’était pas à l’intérieur\", raconte-t-il, \"je deviens hystérique […] je n’ai pas de mots pour cette douleur. » \" \"Son nom était Phil. Meilleur chien du monde\" .\r\n\r\nAprès l’incendie, il fait l’inventaire de ce qu’il lui reste à manger.', '2020-03-11 13:58:36', 'En Alaska, l’aventure «essentielle»');
+INSERT INTO `posts` (`id`, `author`, `content`, `creation_date`, `title`, `post_sample`) VALUES
+(1, 'Forteroche', 'Dans une vidéo publiée vendredi sur Facebook par les autorités locales, Tyson Steele, 30 ans, fait de grands signes en direction de l’hélicoptère. Dans la neige est écrit un immense SOS.\r\n\r\n\"Sa cabane a brûlé à la mi-décembre tuant son chien et le laissant isolé dans des températures en dessous de zéro et avec aucun moyen de communication pendant 23 jours\", écrit la police de l’Alaska.\r\n\r\nLe jeune homme a été retrouvé sain et sauf jeudi dans cette zone où il vivait depuis septembre, loin de tout lieu d’habitation. Il a raconté son incroyable lutte pour survivre aux \"States Troopers\" de l’Alaska, qui l’ont publiée sur leur site internet.\r\n\r\n\"Il était une heure ou deux du matin et j’étais éveillé dans cette cabine froide\", dit-il.\r\n\r\nQuand il sort de sa chaumière, le toit est en feu, il dit avoir eu juste le temps de récupérer quelques affaires. Son chien, en revanche, ne le suit pas.\r\n\r\n\"Mon chien commence à hurler. À l’intérieur. Et je pensais qu’il n’était pas à l’intérieur\", raconte-t-il, \"je deviens hystérique […] je n’ai pas de mots pour cette douleur. » \" \"Son nom était Phil. Meilleur chien du monde\" .\r\n\r\nAprès l’incendie, il fait l’inventaire de ce qu’il lui reste à manger.', '2020-03-11 13:58:36', 'En Alaska, l’aventure «essentielle»', 'Dans une vidéo publiée vendredi sur Facebook par les autorités locales, Tyson Steele, 30 ans, fait de grands signes en direction de l’hélicoptère. Dans la neige est écrit un immense SOS.');
 
 -- --------------------------------------------------------
 
