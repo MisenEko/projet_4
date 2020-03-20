@@ -62,6 +62,6 @@ function editComments($editContent, $id){
     }
 }
 
-function logAdmin(){
-    
+function notLog(){
+    require('admin/login.php');
 }

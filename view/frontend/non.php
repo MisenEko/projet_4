@@ -1,5 +1,4 @@
-<?php ob_start(); ?>
-<p>non</p>
-
-<?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
+<!DOCTYPE html>
+<html>
+    <h1>non</h1>
+</html>
