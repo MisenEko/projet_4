@@ -16,7 +16,7 @@ try {
         }
 
     } else {
-        logAdmin();
+        require('login.php');
     }
 } catch(Exception $e) {
     echo 'Erreur : ' . $e->getMessage();
