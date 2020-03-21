@@ -23,6 +23,12 @@ function post(){
 
 }
 
+function addPosts($author, $title, $sample, $editor){
+
+    $postManager = new ArticleManager();
+    $postManager ->addPost($author, $title, $sample, $editor);
+}
+
 function addComment($pseudo, $content, $idPost){
 
     $commentManager = new CommentManager();
