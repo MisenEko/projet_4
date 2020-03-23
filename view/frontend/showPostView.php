@@ -21,11 +21,11 @@ while ($data = $posts->fetch())
                 <?= htmlspecialchars($data['title']) ?>
             </h2>
             <h3 class="post-subtitle">
-                <?= nl2br(htmlspecialchars($data['post_sample'])) ?>
+                <?= nl2br($data['post_sample']) ?>
             </h3>
           </a>
           <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
+            <a href="#"><?= nl2br(htmlspecialchars($data['author'])) ?></a>
             <em>le <?= $data['creation_date_fr'] ?></em></p>
         </div>
         <hr>

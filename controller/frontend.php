@@ -44,6 +44,27 @@ function addComment($pseudo, $content, $idPost){
 
 }
 
+function tagComments($commentId){
+
+    $commentManager = new CommentManager();
+    $commentManager -> tagComment($commentId);
+
+}
+
+function showTagComments(){
+    
+    $commentManager = new CommentManager();
+    $reportComment = $commentManager -> showTagComment();
+    require('view/frontend/adminTools/ReportComments.php');
+}
+
+function deleteTagComments($id){
+
+    $commentManager = new CommentManager();
+    $deleteComment = $commentManager -> deleteTagComment($id);
+    var_dump($id);
+}
+
 function getCommentByIds(){
     $commentManager = new CommentManager();
 

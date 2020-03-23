@@ -49,7 +49,7 @@ ob_start(); ?>
             <p>Auteur : <?= htmlspecialchars($comments['author']) ?></p>
             <p>Commentaire : <?= htmlspecialchars($comments['content']) ?></p>
             <em><a href="comments.php?action=editComment&amp;comment_id=<?= $comments['id']?>">edit</a></em>
-            
+            <em><a href="comments.php?action=reportComment&amp;comment_id=<?= $comments['id']?>">signaler</a></em>
             </div>
             </br>
 

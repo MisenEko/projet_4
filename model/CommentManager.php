@@ -45,5 +45,25 @@ class CommentManager extends Manager {
         return $test;
     }
 
+    public function tagComment($commentId){
+        $db = $this -> dbConnect();
+        $req = $db -> prepare('UPDATE comments set report_tag = 1 WHERE id = ?');
+        $req -> execute(array($commentId));
+
+    }
+
+    public function showTagComment(){
+        $db = $this -> dbConnect();
+        $req = $db -> query('SELECT author, comment_date, content, id FROM comments WHERE report_tag = 1');
+        return $req;
+    }
+
+    public function deleteTagComment($id){
+
+        $db = $this -> dbConnect();
+        $req = $db -> prepare('DELETE FROM comments WHERE id = ?');
+        $req -> execute(array($id));
+    }
+
 
 }

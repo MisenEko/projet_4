@@ -26,6 +26,22 @@ if(isset($_GET['action'])){
                 }else {
                     throw new Exception('c\'est non (edit comment)');
                 }
-        }
+            } elseif(($_GET['action']) == 'reportComment'){
+                if(isset($_GET['comment_id']) && $_GET['comment_id'] > 0){
+                    tagComments($_GET['comment_id']);
+                } elseif($_GET['action'] == 'showReportComment') {
+                    showTagComments();                
+                } elseif($_GET['action'] == 'deleteComment'){
+                    
+                }
+            }  elseif(($_GET['action']) == 'showReportComment') {
 
+            showTagComments(); 
+
+            }  elseif($_GET['action'] == 'deleteComment'){
+
+                if(isset($_GET['id']) && $_GET['id'] > 0) {
+                    deleteTagComments($_GET['id']);
+                }
+            }
     }
