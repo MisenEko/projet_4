@@ -3,12 +3,16 @@ error_reporting(-1);
 require_once('model/ArticleManager.php');
 require_once('model/CommentManager.php');
 
-function listPosts()
+function listPosts($on)
 {
     $postManager = new ArticleManager();
     $posts = $postManager->getPosts();
 
+    if($on == 0){
     require('view/frontend/showPostView.php');
+    } elseif ($on == 1){
+    require('theme/material-dashboard-master/examples/editArticles.php');
+    }
 }
 
 function post(){

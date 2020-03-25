@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script></head>
-<body>
+<?php
+ob_start()?>
+<script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
+
     <form method="post" action="../../../posts.php?action=submit">
         <label>Auteur : <input type="text" name="author" id="author"> </label>
 </br>
@@ -31,6 +30,6 @@
                 console.error( error );
             } );
     </script>
+    
+    <?php $addArticle = ob_get_clean();?>
 
-</body>
-</html>

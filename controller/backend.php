@@ -10,7 +10,14 @@ class LogIn{
         $result = $checkLogin -> loginCheck();
 
         if(($result['user'] == $user) && ($result['pwd'] == $pwd)){
-            require('view/frontend/oui.php');
+            session_start();
+            $_SESSION['login'] = $result['user'];
+            $_SESSION['pwd'] = $result['pwd'];
+            
+            
+            header('location: theme/material-dashboard-master/template.html');
+            
+            
         } else {
             require('view/frontend/non.php');
         }

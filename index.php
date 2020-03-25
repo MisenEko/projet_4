@@ -1,8 +1,8 @@
 <?php
 
 require('controller/frontend.php');
-
-listPosts();
+$on = 0;
+listPosts($on);
 
 
 
