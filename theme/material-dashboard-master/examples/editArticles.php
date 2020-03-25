@@ -9,6 +9,7 @@ Coded by Creative Tim
 
 =========================================================
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<?php require('view/frontend/adminTools/EditPosts.php')?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,6 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
-
 
 <body class="">
   <div class="wrapper ">
