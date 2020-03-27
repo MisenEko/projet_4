@@ -11,20 +11,34 @@ function listPosts($on)
     if($on == 0){
     require('view/frontend/showPostView.php');
     } elseif ($on == 1){
-    require('theme/material-dashboard-master/examples/editArticles.php');
+        include('view/frontend/adminTools/editArticles.php'); //include_once(dirname(__FILE__) . 'view/frontend/adminTools/editArticles.php'); //
     }
 }
 
-function post(){
+function post($on){
     
-    $commentManager = new CommentManager();
+    if($on == 0){
+
+        $commentManager = new CommentManager();
+        $postManager = new ArticleManager();
+
+        $singlePost = $postManager->getPost($_GET['id']);
+        $comment = $commentManager -> getComments($_GET['id']);
+
+        require("view/frontend/singlePostView.php");
+
+    } elseif ($on == 1){
+
+        $postManager = new ArticleManager();
+        $singlePost = $postManager->getPost($_GET['id']);
+        require('view/frontend/adminTools/EditTools.php');
+    }
+
+}
+
+function editPosts($author, $title, $postSample, $content, $postId){
     $postManager = new ArticleManager();
-
-    $singlePost = $postManager->getPost($_GET['id']);
-    $comment = $commentManager -> getComments($_GET['id']);
-
-    require("view/frontend/singlePostView.php");
-
+    $postManager -> editPost($author, $title, $postSample, $content, $postId);
 }
 
 function addPosts($author, $title, $sample, $editor){
@@ -92,6 +106,8 @@ function editComments($editContent, $id){
         header('Location: index.php');
     }
 }
+
+
 
 function notLog(){
     require('admin/login.php');

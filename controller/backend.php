@@ -15,7 +15,7 @@ class LogIn{
             $_SESSION['pwd'] = $result['pwd'];
             
             
-            header('location: theme/material-dashboard-master/template.html');
+            header('location: ./view/frontend/adminTools/template.php');
             
             
         } else {

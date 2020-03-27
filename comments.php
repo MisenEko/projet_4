@@ -32,7 +32,7 @@ if(isset($_GET['action'])){
                 } elseif($_GET['action'] == 'showReportComment') {
                     showTagComments();                
                 } elseif($_GET['action'] == 'deleteComment'){
-                    
+                    deleteTagComments($id);
                 }
             }  elseif(($_GET['action']) == 'showReportComment') {
 

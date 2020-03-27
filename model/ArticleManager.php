@@ -16,7 +16,7 @@ class ArticleManager extends Manager{
     public function getPost($idPost){
 
         $db = $this -> dbConnect();
-        $req = $db -> prepare('SELECT id, author, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+        $req = $db -> prepare('SELECT id, author, title, content, post_sample, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
         $req -> execute(array($idPost));
         $post = $req ->fetch();
 
@@ -29,6 +29,12 @@ class ArticleManager extends Manager{
         $insert = $db->prepare("INSERT INTO posts (author, title, post_sample, content, creation_date) VALUES (?,?,?,?, NOW())");
         $insert -> execute(array($author, $title, $sample , $editor ));
         
+    }
+
+    public function editPost($author, $title, $postSample, $content, $postId){
+        $db = $this -> dbConnect();
+        $edit = $db -> prepare ('UPDATE posts SET author= ?, title= ?, post_sample= ?, content= ? WHERE id = ?');
+        $edit -> execute(array($author, $title, $postSample, $content, $postId));
     }
 
 
