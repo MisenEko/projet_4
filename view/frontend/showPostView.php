@@ -1,9 +1,7 @@
 
 
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 ob_start(); 
 
@@ -24,14 +22,14 @@ while ($data = $posts->fetch())
                 <?= nl2br($data['post_sample']) ?>
             </h3>
           </a>
-          <p class="post-meta">Posted by
+          <p class="post-meta">Ecrit par
             <a href="#"><?= nl2br(htmlspecialchars($data['author'])) ?></a>
             <em>le <?= $data['creation_date_fr'] ?></em></p>
         </div>
         <hr>
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="posts.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite. &rarr;</a>
         </div>
       </div>
     </div>

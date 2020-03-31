@@ -10,7 +10,11 @@ Coded by Creative Tim
 =========================================================
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 
+<?php
 
+session_start();
+
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +52,7 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item ">
-            <a class="nav-link" href="./examples/dashboard.html">
+            <a class="nav-link" href="login.php?action=adminLogin">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
@@ -61,15 +65,15 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <!-- edit articles-->
-          <li class="nav-item ">
-            <a class="nav-link" href="../../../posts.php?action=editPosts"> <!-- ../../posts.php?action=editPosts -->
+          <li class="nav-item active">
+            <a class="nav-link" href=""> 
               <i class="material-icons">+</i>
               <p>Editer un article</p>
             </a>
           </li>
           <!-- comment manager -->
           <li class="nav-item   ">
-            <a class="nav-link" href="./examples/editArticles.php"> <!-- ../../posts.php?action=editPosts -->
+            <a class="nav-link" href="comments.php?action=showReportComment"> 
               <i class="material-icons">+</i>
               <p>Commentaires signaler</p>
             </a>
@@ -504,3 +508,9 @@ The above copyright notice and this permission notice shall be included in all c
 </body>
 
 </html>
+
+<?php }
+  else {
+    echo 'Vous n\'êtes pas autorisé à voir cette page, si ce problème est survenu après avoir entré vos identifiant, contacter le développeur.';
+  }
+?>

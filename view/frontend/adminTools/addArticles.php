@@ -10,15 +10,79 @@ Coded by Creative Tim
 =========================================================
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <?php include('../../../view/frontend/adminTools/AddPosts.php') ?>
+
+<?php
+
+session_start();
+
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include('AdminHead.php'); ?>
+<head>
+  <title>Blog Alaska</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- Material Kit CSS -->
+  <link href="../../../public/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+</head>
+
 
 <body class="">
   <div class="wrapper ">
 
-  <?php include('AdminMenu.php'); ?>
+  <div class="sidebar" data-color="purple" data-background-color="white">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+       -->
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+          CT
+        </a>
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Creative Tim
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="../../../login.php?action=adminLogin">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <!-- add article -->
+          <li class="nav-item active">
+            <a class="nav-link" href="">
+              <i class="material-icons">+</i>
+              <p>Ajouter un article</p>
+            </a>
+          </li>
+          <!-- edit articles-->
+          <li class="nav-item ">
+            <a class="nav-link" href="../../../posts.php?action=editPosts"> 
+              <i class="material-icons">+</i>
+              <p>Editer un article</p>
+            </a>
+          </li>
+          <!-- comment manager -->
+          <li class="nav-item   ">
+            <a class="nav-link" href="../../../comments.php?action=showReportComment"> 
+              <i class="material-icons">+</i>
+              <p>Commentaires signaler</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   
     <div class="main-panel">
       <!-- Navbar -->
@@ -414,3 +478,9 @@ The above copyright notice and this permission notice shall be included in all c
 </body>
 
 </html>
+
+<?php }
+  else {
+    echo 'Vous n\'êtes pas autorisé à voir cette page, si ce problème est survenu après avoir entré vos identifiant, contacter le développeur.';
+  }
+?>

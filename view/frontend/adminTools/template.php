@@ -1,13 +1,19 @@
-<?php
-
-session_start();
-
-if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
 
 <!doctype html>
 <html lang="en">
 
-<?php include('AdminHead.php'); ?>
+<head>
+  <title>Blog Alaska</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- Material Kit CSS -->
+  <link href="public/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+</head>
 
 <body>
   <div class="wrapper ">
@@ -20,37 +26,37 @@ if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
   -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
+          Blog Alaska
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          Forteroche
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item ">
-            <a class="nav-link" href="./examples/dashboard.html">
+          <li class="nav-item active">
+            <a class="nav-link" href="">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <!-- add article -->
           <li class="nav-item ">
-            <a class="nav-link" href="addArticles.php">
+            <a class="nav-link" href="view/frontend/adminTools/addArticles.php">
               <i class="material-icons">+</i>
               <p>Ajouter un article</p>
             </a>
           </li>
           <!-- edit articles-->
           <li class="nav-item ">
-            <a class="nav-link" href="../../../posts.php?action=editPosts"> <!-- ../../posts.php?action=editPosts -->
+            <a class="nav-link" href="posts.php?action=editPosts"> 
               <i class="material-icons">+</i>
               <p>Editer un article</p>
             </a>
           </li>
           <!-- comment manager -->
           <li class="nav-item   ">
-            <a class="nav-link" href="../../../comments.php?action=showReportComment"> <!-- ../../posts.php?action=editPosts -->
+            <a class="nav-link" href="comments.php?action=showReportComment"> 
               <i class="material-icons">+</i>
               <p>Commentaires signaler</p>
             </a>
@@ -88,6 +94,18 @@ if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
       <div class="content">
         <div class="container-fluid">
           <!-- your content here -->
+
+          <!-- pop up to show if a comments is report or not -->
+          <?php if($count > 0) {?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong><?= $count ?> </strong> <a href='comments.php?action=showReportComment'>commentaire(s) en attente d'être modéré.</a>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <?php } ?>
+
+
         </div>
       </div>
       <footer class="footer">
@@ -113,12 +131,28 @@ if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
       </footer>
     </div>
   </div>
+
+
+
+  <!--   Core JS Files   -->
+<script src="public/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="public/js/core/popper.min.js" type="text/javascript"></script>
+<script src="public/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+<script src="public/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chartist JS -->
+<script src="public/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="public/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="public/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+
+
 </body>
+
+
 
 </html>
 
-<?php }
-  else {
-    echo 'C\'est non';
-  }
-?>
+

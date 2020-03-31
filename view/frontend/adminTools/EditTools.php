@@ -28,7 +28,52 @@ The above copyright notice and this permission notice shall be included in all c
 <body class="">
   <div class="wrapper ">
 
-  <?php include('AdminMenu.php'); ?>
+  <div class="sidebar" data-color="purple" data-background-color="white">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+       -->
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+          CT
+        </a>
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Creative Tim
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="login.php?action=adminLogin">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <!-- add article -->
+          <li class="nav-item ">
+            <a class="nav-link" href="view/frontend/adminTools/addArticles.php">
+              <i class="material-icons">+</i>
+              <p>Ajouter un article</p>
+            </a>
+          </li>
+          <!-- edit articles-->
+          <li class="nav-item active">
+            <a class="nav-link" href=""> 
+              <i class="material-icons">+</i>
+              <p>Editer un article</p>
+            </a>
+          </li>
+          <!-- comment manager -->
+          <li class="nav-item   ">
+            <a class="nav-link" href="comments.php?action=showReportComment"> 
+              <i class="material-icons">+</i>
+              <p>Commentaires signaler</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   
     <div class="main-panel">
       <!-- Navbar -->

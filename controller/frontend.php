@@ -63,9 +63,10 @@ function addComment($pseudo, $content, $idPost){
 }
 
 function tagComments($commentId){
-
+    
     $commentManager = new CommentManager();
     $commentManager -> tagComment($commentId);
+    header('location: posts.php?action=post&id=' . $_GET['post_id']);
 
 }
 
@@ -80,7 +81,7 @@ function deleteTagComments($id){
 
     $commentManager = new CommentManager();
     $deleteComment = $commentManager -> deleteTagComment($id);
-    var_dump($id);
+    
 }
 
 function getCommentByIds(){
