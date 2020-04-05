@@ -43,5 +43,10 @@ if(isset($_GET['action'])){
                 if(isset($_GET['id']) && $_GET['id'] > 0) {
                     deleteTagComments($_GET['id']);
                 }
+            } elseif($_GET['action'] == 'validComment'){
+
+                if(isset($_GET['id']) && $_GET['id'] > 0) {
+                    untagComments($_GET['id']);
+                }
             }
     }

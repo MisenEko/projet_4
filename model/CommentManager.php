@@ -1,8 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 require_once('model/manager.php');
 
@@ -63,6 +60,13 @@ class CommentManager extends Manager {
         $db = $this -> dbConnect();
         $req = $db -> prepare('DELETE FROM comments WHERE id = ?');
         $req -> execute(array($id));
+    }
+
+    public function untagComment($commentId){
+        $db = $this -> dbConnect();
+        $req = $db -> prepare('UPDATE comments set report_tag = 0 WHERE id = ?');
+        $req -> execute(array($commentId));
+
     }
 
 

@@ -47,6 +47,13 @@ function addPosts($author, $title, $sample, $editor){
     $postManager ->addPost($author, $title, $sample, $editor);
 }
 
+function deletePosts($id){
+
+    $postManager = new ArticleManager();
+    $postManager -> deletePost($id);
+    header('Location: posts.php?action=editPosts');
+}
+
 function addComment($pseudo, $content, $idPost){
 
     $commentManager = new CommentManager();
@@ -70,6 +77,13 @@ function tagComments($commentId){
 
 }
 
+function untagComments($commentId){
+    $commentManager = new CommentManager();
+    $commentManager -> untagComment($commentId);
+    header('location: comments.php?action=showReportComment');
+
+}
+
 function showTagComments(){
     
     $commentManager = new CommentManager();
@@ -90,9 +104,6 @@ function getCommentByIds(){
     $contents = $commentManager ->getCommentById($_GET['comment_id']);
     $comId = $_GET['comment_id'];
     
-
-
-
     require("view/frontend/EditComment.php");
 }
 

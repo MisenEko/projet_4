@@ -1,21 +1,21 @@
 <?php
-
 require('model/LoginManager.php');
-require_once('model/manager.php');
+
 
 class LogIn{
 
     public function adminLogin($user, $pwd){
         
         $checkLogin = new GetLogIn();
-        $result = $checkLogin -> loginCheck();
-        session_destroy();
+        $result = $checkLogin -> loginCheck();        
+        
 
         if(($result['user'] == $user) && ($result['pwd'] == $pwd)){
+            if( session_id() == "" && session_id() == NULL)
             session_start();
             $_SESSION['login'] = $result['user'];
-            $_SESSION['pwd'] = $result['pwd'];
-            
+            $_SESSION['password'] = $result['pwd'];
+
             $count = 0;
             $postsDd = new ArticleManager;
             $articles = $postsDd -> getPosts();

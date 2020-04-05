@@ -37,6 +37,13 @@ class ArticleManager extends Manager{
         $edit -> execute(array($author, $title, $postSample, $content, $postId));
     }
 
+    public function deletePost($id){
+
+        $db = $this -> dbConnect();
+        $req = $db -> prepare('DELETE FROM posts WHERE id = ?');
+        $req -> execute(array($id));
+    }
+
 
 
 } ?>
