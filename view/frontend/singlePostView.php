@@ -63,7 +63,7 @@ ob_start(); ?>
             </div>
 
             <div class="col-lg-6 col-md-8">
-            <button type="button" class="btn btn-info">Envoyer</button>
+            <button type="submit" class="btn btn-info">Envoyer</button>
             </div>
         </form>
       </div>
@@ -76,8 +76,9 @@ ob_start(); ?>
             </br>  
             <div class="row">
                 <div class="col-lg-6 col-md-8 mx-auto" style="background-color: #d0eaf2;">         
-              <p>Auteur : <?= htmlspecialchars($comments['author']) ?></p>
-              <p>Commentaire : <?= htmlspecialchars($comments['content']) ?></p>
+              <p><?= htmlspecialchars($comments['author']) ?></p>
+              <p>Commentaire :</p>
+              <p> <?= htmlspecialchars($comments['content']) ?></p>
               <!-- <em><a href="comments.php?action=editComment&amp;comment_id= $comments['id']">edit</a></em>  edit comments disable! --> 
               <em><a  style="color:red;" href="comments.php?action=reportComment&amp;comment_id=<?= $comments['id']?>&amp;post_id=<?=$singlePost['id']?>">signaler</a></em>
               </div>          
