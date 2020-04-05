@@ -1,3 +1,9 @@
+<style>
+.ck-editor__editable_inline {
+    min-height: 200px;
+}
+</style>
+
 <?php
 ob_start()?>
 
@@ -8,42 +14,92 @@ ob_start()?>
         <?php 
             if(!empty($singlePost)){
         ?>        
-            <form method="post" action="posts.php?action=editPosts&amp;id=confirm&amp;postId=<?=$singlePost['id'] ?>">
-                <label>Auteur : <input type="text" name="author" id="author" value="<?= $singlePost['author']?>"> </label>
-                </br>
-                <label>Titre : <input type="text" name="title" id="title" value="<?= $singlePost['title']?>"></label>
-                </br>
-                <label>Extrait de l'article : </label>
-                </br>
+            <form method="post" action="../../../posts.php?action=submit" >
 
-                <textarea name="sample" id="sample" rows="5" cols="80">
-                    <?= $singlePost['post_sample']?>
-                </textarea>
-                <textarea name="editor" id="editor" rows="10" cols="80">
-                    <?= $singlePost['content']?>
-                </textarea>
-                <input type="submit" name="submit" value="SUBMIT">
-            </form>
+                <div class="form-row">
+                    <div class="col-4">
+                    <input type="text" class="form-control" placeholder="<?= $singlePost['author']?>" name="author" id="author">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" placeholder="<?= $singlePost['title']?>" name="title" id="title">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-12 pt-5">
+                        <label>Extrait de l'article : </label>
+                    </div>
+               
+                    <div class="col-12">
+                        <textarea name="sample" id="sample" rows="5" cols="80"><?= $singlePost['post_sample']?></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    
+                    <div class="col-12 pt-5">
+                        <label>Contenu de l'article : </label>
+                    </div>
+                
+                    <div class="col-12">
+                        <textarea  name="editor" id="editor" rows="10" cols="80"><?= $singlePost['content']?></textarea>
+                    </div>
+
+                    <div class="col-4">
+                        <input type="submit" name="submit" value="SUBMIT">
+                    </div>
+
+                </div>
+            </form> 
+            
 
         <?php } else { ?>
             <form method="post" action="../../../posts.php?action=submit" >
-                <label>Auteur : <input type="text" name="author" id="author"> </label>
-                </br>
-                <label>Titre : <input type="text" name="title" id="title"></label>
-                </br>
-                <label>Extrait de l'article : </label>
-                </br>
 
-                <textarea name="sample" id="sample" rows="5" cols="80">
+                <div class="form-row">
+                    <div class="col-4">
+                    <input type="text" class="form-control" placeholder="Auteur" name="author" id="author">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" placeholder="Titre :" name="title" id="title">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-12 pt-5">
+                        <label>Extrait de l'article : </label>
+                    </div>
+               
+                    <div class="col-12">
+                        <textarea name="sample" id="sample" rows="5" cols="80"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
                     
-                </textarea>
+                    <div class="col-12 pt-5">
+                        <label>Contenu de l'article : </label>
+                    </div>
+                
+                    <div class="col-12">
+                        <textarea  name="editor" id="editor" rows="10" cols="80"></textarea>
+                    </div>
 
-                <label>Contenu de l'article : </label>
-                <textarea name="editor" id="editor" rows="10" cols="80">
-                   
-                </textarea>
-                <input type="submit" name="submit" value="SUBMIT">
+                    <div class="col-4">
+                        <input type="submit" name="submit" value="SUBMIT">
+                    </div>
+
+                </div>
             </form> 
+
         <?php } '' ?>
 
 </br>

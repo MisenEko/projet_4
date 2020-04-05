@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
+
 <!--
 =========================================================
 Material Dashboard - v2.1.2
@@ -469,3 +475,9 @@ The above copyright notice and this permission notice shall be included in all c
 </body>
 
 </html>
+
+<?php }
+  else {
+    echo 'Vous n\'êtes pas autorisé à voir cette page, si ce problème est survenu après avoir entré vos identifiant, contacter le développeur.';
+  }
+?>

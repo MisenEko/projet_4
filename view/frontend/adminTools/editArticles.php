@@ -1,3 +1,10 @@
+<?php
+
+  
+session_start();
+
+if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
+
 <!--
 =========================================================
 Material Dashboard - v2.1.2
@@ -10,11 +17,7 @@ Coded by Creative Tim
 =========================================================
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 
-<?php
 
-session_start();
-
-if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,10 +141,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
+                <a class="dropdown-item" href="view/frontend/adminTools/logout.php">se déconnecter</a>
                 </div>
               </li>
             </ul>
@@ -169,14 +169,16 @@ if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
                               <?= nl2br($data['post_sample']) ?>
                           </h3>
                         </a>
-                        <p class="post-meta">Posted by
+                        <p class="post-meta">Rédigé par
                           <a href="#"><?= nl2br(htmlspecialchars($data['author'])) ?></a>
                           <em>le <?= $data['creation_date_fr'] ?></em></p>
                       </div>
                       <hr>
                       <!-- Pager -->
-                      <div class="clearfix">
+
+                      <div class="clearfix">                        
                         <a class="btn btn-primary float-right" href="posts.php?action=editPosts&amp;id=<?=$data['id']?>">Editer cet article &rarr;</a>
+                        <a class="btn btn-primary float-right" href="posts.php?action=delete&amp;id=<?=$data['id']?>">Supprimer l'article &rarr;</a>                     
                       </div>
                     </div>
                   </div>
