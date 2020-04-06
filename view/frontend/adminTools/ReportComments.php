@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 
 if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
 
@@ -15,15 +15,16 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
   <title>Clean Blog - Start Bootstrap Theme</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="../public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
-  <link href="../public/css/clean-blog.min.css" rel="stylesheet">
+  <link href="public/css/clean-blog.min.css" rel="stylesheet">
+  <link href="public/css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -155,22 +156,30 @@ The above copyright notice and this permission notice shall be included in all c
 
             <!-- Show report comments via the DB -->
         <?php while ($data = $reportComment -> fetch()){ ?>
+
             <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-10 mx-auto">
-                            <?= nl2br(htmlspecialchars($data['content'])) ?>
-                            <div class="row pt-3">
-                              <form action="comments.php?action=deleteComment&amp;id=<?=$data['id']?>" method="post">
-                                <input type="submit" value="supprimer">
-                              </form>
-                              <div class="col-1"></div>
-                              <form action="comments.php?action=validComment&amp;id=<?=$data['id']?>" method="post">
-                                <input type="submit" value="valider">
-                              </form>
-                            </div>
-                        </div>
+                  <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                      <div class="post-preview">                        
+                          <h3 class="post-subtitle">
+                              <?= nl2br(htmlspecialchars($data['content'])) ?>
+                          </h3>
+                        </a>
+                        <p class="post-meta">Rédigé par
+                          <a href="#"><?= nl2br(htmlspecialchars($data['author'])) ?></a>                          
+                      </div>
+                      <hr>
+                      <!-- Pager -->
+
+                      <div class="clearfix">                
+
+                        <a class="btn btn-primary float-right" href="comments.php?action=deleteComment&amp;id=<?=$data['id']?>" onclick="return confirm('ëtes-vous sur de vouloir supprimer ce commentaire ?');">Supprimer le commmentaire &rarr;</a> 
+                        <a class="btn btn-primary float-right" href="comments.php?action=validComment&amp;id=<?=$data['id']?>" onclick="return confirm('ëtes-vous sur de vouloir valider ce commentaire ?');">Valider le commentaire  &rarr;</a>
+                    
+                      </div>
                     </div>
-            </div>
+                  </div>
+                </div>
         <?php }?>
 
 
@@ -182,33 +191,11 @@ The above copyright notice and this permission notice shall be included in all c
           <nav class="float-left">
             <ul>
               <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
+                
             </ul>
           </nav>
           <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+
           </div>
         </div>
       </footer>
@@ -216,9 +203,7 @@ The above copyright notice and this permission notice shall be included in all c
   </div>
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
-      <a href="#" data-toggle="dropdown">
-        <i class="fa fa-cog fa-2x"> </i>
-      </a>
+
       <ul class="dropdown-menu">
         <li class="header-title"> Sidebar Filters</li>
         <li class="adjustments-line">

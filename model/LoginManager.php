@@ -14,4 +14,3 @@ class GetLogIn extends Manager{
 
     }
  }
-    

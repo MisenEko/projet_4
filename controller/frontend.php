@@ -95,6 +95,7 @@ function deleteTagComments($id){
 
     $commentManager = new CommentManager();
     $deleteComment = $commentManager -> deleteTagComment($id);
+    header('location: comments.php?action=showReportComment');
     
 }
 

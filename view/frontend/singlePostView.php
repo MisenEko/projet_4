@@ -11,8 +11,7 @@ ob_start();
           <div class="post-heading">
             <h1><?= htmlspecialchars($singlePost['title'])?></h1>
             <h2 class="subheading"></h2>
-            <span class="meta">Posted by <?= htmlspecialchars($singlePost['author'])?>
-              <a href="#">Start Bootstrap</a>
+            <span class="meta">Mis en ligne par <?= htmlspecialchars($singlePost['author'])?>              
               <?= htmlspecialchars($singlePost['creation_date_fr'])?></span>
           </div>
         </div>

@@ -62,7 +62,7 @@ ob_start()?>
 
                 <div class="form-row">
                     <div class="col-4">
-                    <input type="text" class="form-control" placeholder="Auteur" name="author" id="author">
+                    <input type="text" class="form-control" placeholder="Auteur : " name="author" id="author">
                     </div>
                 </div>
 
@@ -123,7 +123,7 @@ ClassicEditor
 		ckfinder: {
 			uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
 		},
-		toolbar: [ 'ckfinder', 'imageUpload', '|', 'heading', '|', 'bold', 'italic', '|', 'link' , 'bulletedList', 'numberedList', 'blockQuote' ,'|','undo', 'redo' ]
+		toolbar: [ 'ckfinder', '|', 'heading', '|', 'bold', 'italic', '|', 'link' , 'bulletedList', 'numberedList', 'blockQuote' ,'|','undo', 'redo' ]
 	} )
 	.catch( error => {
 		console.error( error );
