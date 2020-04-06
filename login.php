@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require('controller/frontend.php');
 require('controller/backend.php');
 
@@ -10,9 +10,12 @@ try {
                 $checkLog = new LogIn();
                 $checkLog -> adminLogin($_POST['username'], $_POST['pwd']);
                 
-            } elseif (isset($_SESSION['login']) && isset($_SESSION['pwd'])){
-                $checkLog = new LogIn();
-                $checkLog -> adminLogin($_SESSION['login'], $_SESSION['pwd']);
+            } if( session_id() == "" && session_id() == NULL){
+                session_start();
+                if (isset($_SESSION['login']) && isset($_SESSION['password'])){                    
+                    $checkLog = new LogIn();
+                    $checkLog -> adminLogin($_SESSION['login'], $_SESSION['password']);
+                }
                 
             }else {
                 throw new Exception('Tout les champs doivent être rempli');
