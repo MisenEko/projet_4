@@ -52,13 +52,17 @@ ob_start(); ?>
             <div class="col-lg-6 col-md-8">
                 <label>Votre pseudo :</label>
                 </br>
-                <input type="text" id="author" name="author">
+                <input type="text" id="author" name="author" required        
+                  oninvalid="this.setCustomValidity('Votre pseudo est obligatoire.')"  
+                  onchange="this.setCustomValidity('')"> <!--oninvalid = will send an error message if the field is empty // onchange = will reset the field with nothing inside it. -->
             </div>
 
             <div class="col-lg-6 col-md-8">
                 <label>Votre commentaire : </label>
                 </br>
-                <textarea id="content" name="content"></textarea>
+                <textarea id="content" name="content" required        
+                  oninvalid="this.setCustomValidity('Le champs de texte ne peut être vide.')"
+                  onchange="this.setCustomValidity('')"></textarea>
             </div>
 
             <div class="col-lg-6 col-md-8">
