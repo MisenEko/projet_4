@@ -45,11 +45,11 @@ The above copyright notice and this permission notice shall be included in all c
       Tip 2: you can also add an image using data-image tag
        -->
       <div class="logo">
-        <a href="" class="simple-text logo-mini">
-          Tableau
+        <a href="http://jfourquet.com/projet_4/" class="simple-text logo-mini">
+          Blog Forteroche
         </a>
-        <a href="" class="simple-text logo-normal">
-          de bord
+        <a href="http://jfourquet.com/projet_4/" class="simple-text logo-normal">
+          Alaska
         </a>
       </div>
       <div class="sidebar-wrapper">

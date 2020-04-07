@@ -14,7 +14,7 @@ ob_start()?>
         <?php 
             if(!empty($singlePost)){
         ?>        
-            <form method="post" action="../../../posts.php?action=submit" >
+            <form method="post" action="posts.php?action=editPosts&amp;id=confirm&amp;postId=<?= $singlePost['id'] ?>" >
 
                 <div class="form-row">
                     <div class="col-4">
@@ -58,7 +58,7 @@ ob_start()?>
                     </div>
 
                     <div class="col-4">
-                        <input type="submit" name="submit" value="SUBMIT">
+                        <input type="submit" name="submit" value="Editer">
                     </div>
 
                 </div>
@@ -66,11 +66,11 @@ ob_start()?>
             
 
         <?php } else { ?>
-            <form method="post" action="../../../posts.php?action=submit" >
+            <form method="post" action="../../../posts.php?action=submit">
 
-                <div class="form-row">
+            <div class="form-row">
                     <div class="col-4">
-                    <input type="text" class="form-control" placeholder="Auteur : " name="author" id="author" required        
+                    <input type="text" class="form-control" placeholder="Votre nom" name="author" id="author" required        
                     oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
                     onchange="this.setCustomValidity('')">
                     </div>
@@ -78,9 +78,9 @@ ob_start()?>
 
                 <div class="form-row">
                     <div class="col-6">
-                        <input type="text" class="form-control" placeholder="Titre :" name="title" id="title" required        
+                        <input type="text" class="form-control" placeholder="titre" name="title" id="title" required        
                     oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
-                    onchange="this.setCustomValidity('')">
+                    onchange="this.setCustomValidity('')" >
                     </div>
                 </div>
 
@@ -90,9 +90,7 @@ ob_start()?>
                     </div>
                
                     <div class="col-12">
-                        <textarea name="sample" id="sample" rows="5" cols="80" required        
-                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
-                    onvalid="this.setCustomValidity('')"></textarea>
+                        <textarea name="sample" id="sample" rows="5" cols="80" value="Cet extrait apparaitra sur la page principale du blog."></textarea>
                     </div>
 
                 </div>
@@ -104,13 +102,12 @@ ob_start()?>
                     </div>
                 
                     <div class="col-12">
-                        <textarea  name="editor" id="editor" rows="10" cols="80" required        
-                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
-                    onvalid="this.setCustomValidity('')"></textarea>
+                        <textarea  name="editor" id="editor" rows="10" cols="80" value="Contenu principale de votre article." 
+                    ></textarea>
                     </div>
 
                     <div class="col-4">
-                        <input type="submit" name="submit" value="SUBMIT">
+                        <input type="submit" name="submit" value="Poster">
                     </div>
 
                 </div>

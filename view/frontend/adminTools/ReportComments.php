@@ -75,11 +75,11 @@ The above copyright notice and this permission notice shall be included in all c
       Tip 2: you can also add an image using data-image tag
        -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
+        <a href="http://jfourquet.com/projet_4/" class="simple-text logo-mini">
+          Blog Forteroche
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+        <a href="http://jfourquet.com/projet_4/" class="simple-text logo-normal">
+          Alaska
         </a>
       </div>
       <div class="sidebar-wrapper">
