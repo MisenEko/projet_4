@@ -18,13 +18,17 @@ ob_start()?>
 
                 <div class="form-row">
                     <div class="col-4">
-                    <input type="text" class="form-control" placeholder="<?= $singlePost['author']?>" name="author" id="author">
+                    <input type="text" class="form-control" placeholder="<?= $singlePost['author']?>" name="author" id="author" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="col-6">
-                        <input type="text" class="form-control" placeholder="<?= $singlePost['title']?>" name="title" id="title">
+                        <input type="text" class="form-control" placeholder="<?= $singlePost['title']?>" name="title" id="title" required        
+                        oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                        onchange="this.setCustomValidity('')">
                     </div>
                 </div>
 
@@ -34,7 +38,9 @@ ob_start()?>
                     </div>
                
                     <div class="col-12">
-                        <textarea name="sample" id="sample" rows="5" cols="80"><?= $singlePost['post_sample']?></textarea>
+                        <textarea name="sample" id="sample" rows="5" cols="80" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')"><?= $singlePost['post_sample']?></textarea>
                     </div>
 
                 </div>
@@ -46,7 +52,9 @@ ob_start()?>
                     </div>
                 
                     <div class="col-12">
-                        <textarea  name="editor" id="editor" rows="10" cols="80"><?= $singlePost['content']?></textarea>
+                        <textarea  name="editor" id="editor" rows="10" cols="80" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')"><?= $singlePost['content']?></textarea>
                     </div>
 
                     <div class="col-4">
@@ -62,13 +70,17 @@ ob_start()?>
 
                 <div class="form-row">
                     <div class="col-4">
-                    <input type="text" class="form-control" placeholder="Auteur : " name="author" id="author">
+                    <input type="text" class="form-control" placeholder="Auteur : " name="author" id="author" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="col-6">
-                        <input type="text" class="form-control" placeholder="Titre :" name="title" id="title">
+                        <input type="text" class="form-control" placeholder="Titre :" name="title" id="title" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')">
                     </div>
                 </div>
 
@@ -78,7 +90,9 @@ ob_start()?>
                     </div>
                
                     <div class="col-12">
-                        <textarea name="sample" id="sample" rows="5" cols="80"></textarea>
+                        <textarea name="sample" id="sample" rows="5" cols="80" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onvalid="this.setCustomValidity('')"></textarea>
                     </div>
 
                 </div>
@@ -90,7 +104,9 @@ ob_start()?>
                     </div>
                 
                     <div class="col-12">
-                        <textarea  name="editor" id="editor" rows="10" cols="80"></textarea>
+                        <textarea  name="editor" id="editor" rows="10" cols="80" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onvalid="this.setCustomValidity('')"></textarea>
                     </div>
 
                     <div class="col-4">

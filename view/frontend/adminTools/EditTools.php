@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
 
@@ -41,10 +41,10 @@ The above copyright notice and this permission notice shall be included in all c
        -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
+          Blog Forteroche
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          Alaska
         </a>
       </div>
       <div class="sidebar-wrapper">

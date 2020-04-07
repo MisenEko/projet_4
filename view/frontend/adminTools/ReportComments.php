@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 
 if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
@@ -12,7 +12,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Clean Blog - Start Bootstrap Theme</title>
+  <title>Blog Forteroche - Alaska</title>
 
   <!-- Bootstrap core CSS -->
   <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
