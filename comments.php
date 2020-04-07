@@ -11,7 +11,7 @@ if(isset($_GET['action'])){
                         addComment($_POST['author'], $_POST['content'], $_GET['id']);
 
                     } else {
-                        throw new Exception('c\'est non (add comment)');
+                        throw new Exception('Votre comment n\'a pas été ajouté car il manquait des informtions.');
                     }
                 }
 
