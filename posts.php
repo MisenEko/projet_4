@@ -18,7 +18,7 @@ if(isset($_GET['action'])){
             addPosts($_POST['author'], $_POST['title'], $_POST['sample'], $_POST['editor'] );
             
         } else { 
-            //ajouter message d'erreur
+            echo "c'est non";
         }
     } elseif ($_GET['action'] == "editPosts"){
         if(isset($_GET['id']) && $_GET['id'] > 0){
@@ -28,6 +28,7 @@ if(isset($_GET['action'])){
             if(!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['sample']) && !empty($_POST['editor']))
             {
                 editPosts($_POST['author'], $_POST['title'], $_POST['sample'], $_POST['editor'], $_GET['postId']);
+                
                 
             } else {
                 //ajouter message d'erreur
