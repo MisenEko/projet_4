@@ -6,10 +6,11 @@ class LogIn{
 
     public function adminLogin($user, $pwd){
         
+        //function to check if the admin login is right
         $checkLogin = new GetLogIn();
         $result = $checkLogin -> loginCheck();        
         
-
+        //condition to start a session or not
         if(($result['user'] == $user) && ($result['pwd'] == $pwd)){
             if( session_id() == "" && session_id() == NULL)
             session_start();
@@ -30,13 +31,16 @@ class LogIn{
             
             
         } else {
-            require('view/frontend/non.php');
+            
+            echo 'Vous n\'êtes pas autorisé à voir cette page, si ce problème est survenu après avoir entré vos identifiant, contacter le développeur.';
+              
         }
 
 
 
     }
 
+    //just a little function to count the number of comments for the admin dashboard
     private function tagCount($comments, $count){
 
         while ($data = $comments -> fetch()){

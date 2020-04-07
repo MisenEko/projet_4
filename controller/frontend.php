@@ -1,5 +1,5 @@
 <?php
-error_reporting(-1);
+
 require_once('model/ArticleManager.php');
 require_once('model/CommentManager.php');
 
@@ -8,15 +8,17 @@ function listPosts($on)
     $postManager = new ArticleManager();
     $posts = $postManager->getPosts();
 
+    //condition to know wich page has to be show. 0 to show the public post view, 1 to show the admin post view.
     if($on == 0){
     require('view/frontend/showPostView.php');
     } elseif ($on == 1){
-        include('view/frontend/adminTools/editArticles.php'); //include_once(dirname(__FILE__) . 'view/frontend/adminTools/editArticles.php'); //
+        include('view/frontend/adminTools/editArticles.php'); 
     }
 }
 
 function post($on){
-    
+
+    //condition to know wich page has to be show. 0 to show the public single post view, 1 to show the article who need to be edit.
     if($on == 0){
 
         $commentManager = new CommentManager();
@@ -44,7 +46,14 @@ function editPosts($author, $title, $postSample, $content, $postId){
 function addPosts($author, $title, $sample, $editor){
 
     $postManager = new ArticleManager();
-    $postManager ->addPost($author, $title, $sample, $editor);
+    $addArticle = $postManager ->addPost($author, $title, $sample, $editor);
+    
+    if ($addArticle === false) {
+        die("L'article n'a pas été ajouté.");
+    }
+    else {
+        header('Location: view/frontend/adminTools/addArticles.php');
+    }
 }
 
 function deletePosts($id){
@@ -118,10 +127,4 @@ function editComments($editContent, $id){
     else {
         header('Location: index.php');
     }
-}
-
-
-
-function notLog(){
-    require('admin/login.php');
 }
