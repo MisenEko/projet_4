@@ -41,6 +41,7 @@ function post($on){
 function editPosts($author, $title, $postSample, $content, $postId){
     $postManager = new ArticleManager();
     $postManager -> editPost($author, $title, $postSample, $content, $postId);
+    header('location: posts.php?action=editPosts');
 }
 
 function addPosts($author, $title, $sample, $editor){
@@ -52,7 +53,7 @@ function addPosts($author, $title, $sample, $editor){
         die("L'article n'a pas été ajouté.");
     }
     else {
-        header('Location: view/frontend/adminTools/addArticles.php');
+        header('Location: posts.php?action=editPosts');
     }
 }
 
