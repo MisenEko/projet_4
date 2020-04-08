@@ -10,7 +10,7 @@ function listPosts($on)
 
     //condition to know wich page has to be show. 0 to show the public post view, 1 to show the admin post view.
     if($on == 0){
-    require('view/frontend/showPostView.php');
+    require('view/frontend/main.php');
     } elseif ($on == 1){
         include('view/frontend/adminTools/editArticles.php'); 
     }
@@ -27,13 +27,13 @@ function post($on){
         $singlePost = $postManager->getPost($_GET['id']);
         $comment = $commentManager -> getComments($_GET['id']);
 
-        require("view/frontend/singlePostView.php");
+        require("view/frontend/PostView.php");
 
     } elseif ($on == 1){
 
         $postManager = new ArticleManager();
         $singlePost = $postManager->getPost($_GET['id']);
-        require('view/frontend/adminTools/EditTools.php');
+        require('view/frontend/adminTools/addArticles.php');
     }
 
 }

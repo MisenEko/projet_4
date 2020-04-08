@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('../../../view/frontend/adminTools/AddPosts.php') ?>
+?>
 
 <!--
 =========================================================
@@ -37,9 +37,14 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="../../../public/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  <link href="public/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+  <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
+  <script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
 </head>
 
-
+<?php 
+            if(!empty($singlePost)){
+        ?> 
 <body class="">
   <div class="wrapper ">
 
@@ -55,6 +60,145 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
         </a>
         <a href="http://jfourquet.com/projet_4/" class="simple-text logo-normal">
           FORTEROCHE
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="login.php?action=adminLogin">
+              <i class="material-icons">dashboard</i>
+              <p>Tableau de bord</p>
+            </a>
+          </li>
+          <!-- add article -->
+          <li class="nav-item">
+            <a class="nav-link" href="view/frontend/adminTools/addArticles.php">
+              <i class="material-icons">+</i>
+              <p>Ajouter un article</p>
+            </a>
+          </li>
+          <!-- edit articles-->
+          <li class="nav-item active">
+            <a class="nav-link" href="posts.php?action=editPosts"> 
+              <i class="material-icons">+</i>
+              <p>Editer un article</p>
+            </a>
+          </li>
+          <!-- comment manager -->
+          <li class="nav-item   ">
+            <a class="nav-link" href="comments.php?action=showReportComment"> 
+              <i class="material-icons">+</i>
+              <p>Commentaires signaler</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">Ajouter un article</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">   
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                <a class="dropdown-item" href="logout.php">se déconnecter</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      
+      
+      <!-- start of edit tools -->
+      <div class="content">   
+       
+            <form method="post" action="posts.php?action=editPosts&amp;id=confirm&amp;postId=<?= $singlePost['id'] ?>" >
+
+                <div class="form-row">
+                    <div class="col-4">
+                    <input type="text" class="form-control" placeholder="<?= $singlePost['author']?>" name="author" id="author" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" placeholder="<?= $singlePost['title']?>" name="title" id="title" required        
+                        oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                        onchange="this.setCustomValidity('')">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-12 pt-5">
+                        <label>Extrait de l'article : </label>
+                    </div>
+               
+                    <div class="col-12">
+                        <textarea name="sample" id="sample" rows="5" cols="80" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')"><?= $singlePost['post_sample']?></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    
+                    <div class="col-12 pt-5">
+                        <label>Contenu de l'article : </label>
+                    </div>
+                
+                    <div class="col-12">
+                        <textarea  name="editor" id="editor" rows="10" cols="80" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')"><?= $singlePost['content']?></textarea>
+                    </div>
+
+                    <div class="col-4">
+                        <input type="submit" name="submit" value="Editer">
+                    </div>
+
+                </div>
+            </form> 
+            
+
+        <?php } else { ?>
+
+          <body class="">
+  <div class="wrapper ">
+
+  <div class="sidebar" data-color="purple" data-background-color="white">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+       -->
+      <div class="logo">
+        <a href="http://jfourquet.com/projet_4/" class="simple-text logo-mini">
+          Blog Forteroche
+        </a>
+        <a href="http://jfourquet.com/projet_4/" class="simple-text logo-normal">
+          Alaska
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -121,8 +265,89 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
         </div>
       </nav>
       <!-- End Navbar -->
+      
+      
+      <!-- start of edit tools -->
       <div class="content">
-        <?=$addArticle ?>
+
+            <form method="post" action="../../../posts.php?action=submit">
+
+            <div class="form-row">
+                    <div class="col-4">
+                    <input type="text" class="form-control" placeholder="votre nom" name="author" id="author" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" placeholder="titre" name="title" id="title" required        
+                    oninvalid="this.setCustomValidity('Ce champs ne peut être vide.')"
+                    onchange="this.setCustomValidity('')" >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-12 pt-5">
+                        <label>Extrait de l'article : </label>
+                    </div>
+               
+                    <div class="col-12">
+                        <textarea name="sample" id="sample" rows="5" cols="80" value="Cet extrait apparaitra sur la page principale du blog."></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    
+                    <div class="col-12 pt-5">
+                        <label>Contenu de l'article : </label>
+                    </div>
+                
+                    <div class="col-12">
+                        <textarea  name="editor" id="editor" rows="10" cols="80" value="Contenu principale de votre article." 
+                    ></textarea>
+                    </div>
+
+                    <div class="col-4">
+                        <input type="submit" name="submit" value="Poster">
+                    </div>
+
+                </div>
+            </form> 
+
+        <?php } '' ?>
+
+        </br>
+
+
+    <script>
+        ClassicEditor
+      .create( document.querySelector( '#sample' ), {
+        ckfinder: {
+          uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+        },
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'underline', '|', 'link' , 'bulletedList', 'numberedList', 'blockQuote','|','undo', 'redo' ] , 
+
+      } )
+      .catch( error => {
+        console.error( error );
+      } );
+
+        ClassicEditor
+      .create( document.querySelector( '#editor' ), {
+        ckfinder: {
+          uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+        },
+        toolbar: [ 'ckfinder', '|', 'heading', '|', 'bold', 'italic', '|', 'link' , 'bulletedList', 'numberedList', 'blockQuote' ,'|','undo', 'redo' ]
+      } )
+      .catch( error => {
+        console.error( error );
+      } );
+    </script>
+    
+    <!-- end of edit tools -->
         
       </div>
       <footer class="footer">
