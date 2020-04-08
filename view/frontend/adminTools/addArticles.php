@@ -1,3 +1,7 @@
+<?php 
+session_start();
+include('../../../view/frontend/adminTools/AddPosts.php') ?>
+
 <!--
 =========================================================
 Material Dashboard - v2.1.2
@@ -9,11 +13,13 @@ Coded by Creative Tim
 
 =========================================================
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
-<?php include('../../../view/frontend/adminTools/AddPosts.php') ?>
+
+
+
 
 <?php
 
-session_start();
+
 
 if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
 

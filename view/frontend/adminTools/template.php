@@ -28,10 +28,10 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="http://jfourquet.com/projet_4" class="simple-text logo-mini">
           Blog Alaska
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="http://jfourquet.com/projet_4" class="simple-text logo-normal">
           Forteroche
         </a>
       </div>
