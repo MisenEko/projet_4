@@ -18,7 +18,7 @@ if(isset($_GET['action'])){
             addPosts($_POST['author'], $_POST['title'], $_POST['sample'], $_POST['editor'] );
             
         } else { 
-            echo "c'est non";
+            //ajouter message d'erreur
         }
     } elseif ($_GET['action'] == "editPosts"){
         if(isset($_GET['id']) && $_GET['id'] > 0){

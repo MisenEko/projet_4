@@ -17,8 +17,13 @@ try {
                     $checkLog -> adminLogin($_SESSION['login'], $_SESSION['password']);
                 }
                 
-            }else {
-                throw new Exception('Tout les champs doivent être rempli');
+            }elseif(isset($_SESSION['login']) && isset($_SESSION['password'])){
+                $checkLog = new LogIn();
+                $checkLog -> adminLogin($_SESSION['login'], $_SESSION['password']);
+            }           
+            
+            else {
+                var_dump($_SESSION);
             }
         }
 
