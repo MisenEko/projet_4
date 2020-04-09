@@ -12,7 +12,7 @@ function listPosts($on)
     if($on == 0){
     require('view/frontend/main.php');
     } elseif ($on == 1){
-        include('view/frontend/adminTools/editArticles.php'); 
+        include('view/frontend/adminTools/EditArticles.php'); 
     }
 }
 
@@ -33,7 +33,7 @@ function post($on){
 
         $postManager = new ArticleManager();
         $singlePost = $postManager->getPost($_GET['id']);
-        require('view/frontend/adminTools/addArticles.php');
+        require('view/frontend/adminTools/AddArticles.php');
     }
 
 }

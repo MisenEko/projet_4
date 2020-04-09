@@ -27,7 +27,7 @@ class LogIn{
     
             $count = $this -> tagCount($comments, $count);
     
-            require('view/frontend/adminTools/template.php');
+            require('view/frontend/adminTools/Template.php');
             
             
         } else {

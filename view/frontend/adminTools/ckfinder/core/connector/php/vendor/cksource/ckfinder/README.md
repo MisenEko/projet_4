@@ -8,7 +8,7 @@ Follow the steps below to install the CKFinder PHP connector.
 1. `git clone git@github.com:cksource/ckfinder-connector-php.git`
 2. `cd ckfinder-connector-php`
 3. `composer install`
-4. `cp config.template.php config.php`
+4. `cp config.Template.php config.php`
 5. Edit `config.php` and set `return true;` in the `authentication` function.
 6. Give write permissions for the `userfiles` directory (e.g. `chmod 777`)
 7. Run: `http://127.0.0.1/ckfinder-connector-php/ckfinder.php?command=Init`

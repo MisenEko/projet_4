@@ -92,7 +92,7 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
           <!-- add article -->
           <li class="nav-item ">
-            <a class="nav-link" href="view/frontend/adminTools/addArticles.php">
+            <a class="nav-link" href="view/frontend/adminTools/AddArticles.php">
               <i class="material-icons">+</i>
               <p>Ajouter un article</p>
             </a>

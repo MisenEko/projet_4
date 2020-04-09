@@ -45,7 +45,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) { ?>
           </li>
           <!-- add article -->
           <li class="nav-item ">
-            <a class="nav-link" href="view/frontend/adminTools/addArticles.php">
+            <a class="nav-link" href="view/frontend/adminTools/AddArticles.php">
               <i class="material-icons">+</i>
               <p>Ajouter un article</p>
             </a>
